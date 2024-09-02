@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>soft</title>
+<link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body style="padding-top: 70px">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light"> <a class="navbar-brand" href="index2.html">Proiect 2</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active"> <a class="nav-link" href="index2.html">Home <span class="sr-only">(current)</span></a> </li>
+      <li class="nav-item"> <a class="nav-link" href="about.html">Concept</a> </li>
+      <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="hard.html" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Documentatie </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown1"> <a class="dropdown-item" href="hard.html">Parte Hardware</a> <a class="dropdown-item" href="soft.html">Parte Software</a>
+         
+      </li>
+      <li class="nav-item"> <a class="nav-link " href="contact.html">Concluzie</a> </li>
+    </ul>
+    
+  </div>
+</nav>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap-4.4.1.js"></script>
+	
+<div class="container-fluid"></div>
+<div class="row">
+	  <div class="col-xl-12"><h3 align="center"> Partea Software</h3>
+		<hr color=black>
+	
+	</div>
+</div>
+<br>
+	
+<div class="container-fluid">
+	<div class="row">
+	  <div class="col-xl-6">
+	  <h5 align="center">Biblioteci folosite</h5>
+		  <p>Bibliotecile folosite sunt: <b>"mega164a.h"</b> pentru uC-ul utilizat si <b>"delay.h"</b> pentru a adauga anumite intarzieri.
+        Am definit functia "nop" () pentru a putea introduce o intarziere foarte scurta, precisa la nivel de ciclu de ceas(1 ciclu CLK=1/20MHz=50ns).Iar "defs.h" este folosita pentru a definii pinii(SW1-D5,SW2-D4) pentru butoane si portul(D6) pentru LED1.</p>
+		  <hr color="black">
+	  </div>
+	  <div class="col-xl-6">
+		  <img src="imagini/biblioteci cod.jpeg" width="294" height="69" alt=""/> 
+		 
+		<hr color="black">
+	  </div>
+  </div>
+  <div class="row">
+	  <div class="col-xl-6">
+		  
+		  <left>
+			  
+		    <img src="imagini/cascada.jpeg" width="250px" height="202px" alt=""/> 
+			  
+			  
+		  </left>
+		  <hr color="black">
+    </div>
+	  <div class="col-xl-6">
+		  <p>Functia de tip void "rosu0" trimite un 0 pe portul A astfel: initializeaza A0 cu 1 pentru o perioada de 300ns, iar mai apoi cu 0 pentru o perioada de 700ns.</p>
+      <p>Functia de tip void "rosu1" trimite un 1 pe portul A astfel: initializeaza A0 cu 1 pentru o perioada de 700ns, iar mai apoi cu 0 pentru o perioada de 300ns.</p>
+		  <p>La fel functioneaza si "verde0", "verde1"(A1), "albastru0" si ""albastru1"(A2).</p>
+		  <br>
+		  
+	    <img src="imagini/aprinderosu.jpeg" width="650px" height="250px" alt=""/>
+		  <br>
+		  <br>
+		  <br>
+	  <hr color="black">
+    </div>
+	  
+    <div class="row">
+	    <div class="col-xl-6">
+		<p>Functia "A_R" ne ajuta sa setam intensitatea luminozitatii ledurilor de culoare rosie. Fiecare led contine un pachet complet de 24b, cate 8b pentru GRB in aceasta ordine: 8 biti de 0(0x00) pentru canalul verde, 6 biti de 1 urmati de 2 biti de 0(0xFC) pentru canalul rosu, 8 biti de 0(0x00) pentru canalul albatsru.</p>
+			<p>La fel functioneaza si "A_G", "A_B". (0xF0 pentru canalul verde, respectiv canalul albastru).</p>
+			<center>
+			  <img src="imagini/AR.jfif" width="450px" height="200px" alt=""/> 
+				
+            </center>
+			<hr color="black">
+			
+		</div>
+	    <div class="col-xl-6">Functiile "aprinde_rosu", "aprinde_verde" si "aprinde_albastru" sunt cele care realizeaza o conversie zecimal->binar, pentru a putea aprinde ledurile corespunzatoare numarului dat.
+			Functiile "stinge_rosu", "stinge_verde" si "stinge_albastru" sting un numar de n leduri.
+			<br>
+			<right>
+		    <img src="imagini/aprinde.jpeg" width="250px" height="200px" alt=""/>  </right>
+			<left>
+		    <img src="imagini/stinge.jpeg" width="280px" height="230px" alt=""/> </left>
+			<hr color="black">
+		</div>
+    </div>
+  </div>
+  <div class="row">
+	  <div class="col-xl-6">
+		  <p>Funcția timer1_compa_isr(void) realizeaza o întrerupere care se execută automat la fiecare secundă, atunci când contorul timerului 1 ajunge la valoarea din registrul OCR1A(4C40). Această valoare a fost setată anterior pentru a corespunde cu 1 Hz.
+ <p>LED1=~LED1-> schimbă starea LED-ului la fiecare secundă, oferind un indicator vizual al funcționării corecte a timerului.
+ Incrementam variabila "seconds" pana ajungem la 60, mai apoi o resetam la 0 si incepem sa incrementam "minutes" pana la 60, similar se procedeaza si cu "hours" care se reseteaza la 0 cand ajunge la 24, marcand inceputul unei noi zi.</p>
+ <p>Convertirea timpului in format de afisare se realizeaza cu ajutorul variabilelor: numarH, numarM, și numarS care stocheaza orele, minutele si secundele intr-un format codificat, utilizand 4 biti pentru fiecare cifra zecimala.</p>
+ <p>Afișarea timpului cu LED-uri colorate: Funcțiile aprinde_rosu(numarS), aprinde_verde(numarM) și aprinde_albastru(numarH) controlează benzile de LED-uri WS2812 pentru a afișa secundele, minutele și orele, respectiv, folosind culorile roșu, verde și albastru.
+ Dacă valoarea este 0, LED-urile respective sunt stinse folosind stinge_rosu(7), stinge_verde(7) și stinge_albastru(6).</p>
+	  
+	  </div>
+	  <div class="col-xl-6"><p>In void main, activam intreruperea, initializam LED1 cu 1 (il aprindem) si apelam functiile stinge_rosu(7), stinge_verde(7) si stinge_albastru(6) . In while, verificam daca butonul SW1 este apasat si asteptam 30ms pentru a trece zgomotul de la apasare, mai apoi asteptam eliberarea butonului pentru a putea incrementa minutele. La fel se procedeaza si pentru ore(SW2).</p></div>
+  </div>
+</div>
+
+
+</body>
+</html>

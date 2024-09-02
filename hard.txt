@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proiect2-Documentatie-hard</title>
+<link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+</head>
+
+<body style="padding-top: 70px">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light"> <a class="navbar-brand" href="index2.html">Proiect 2</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active"> <a class="nav-link" href="index2.html">Home <span class="sr-only">(current)</span></a> </li>
+      <li class="nav-item"> <a class="nav-link" href="about.html">Concept </a> </li>
+      <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="hard.html" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Documentatie  </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown1"> <a class="dropdown-item" href="hard.html">Parte Hardware</a> <a class="dropdown-item" href="soft.html">Parte Software</a>
+       
+      </li>
+      <li class="nav-item"> <a class="nav-link " href="contact.html">Concluzie</a> </li>
+    </ul>
+    
+  </div>
+</nav>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap-4.4.1.js"></script>
+	
+<div class="row">
+	  <div class="col-lg-12">
+		  <h3 align="center"> Partea Hardware </h3>
+		  <h5 align="left"> Descrierea Componentelor Utilizate </h5>
+		  <hr color= "black">
+	</div>
+	
+</div>
+	
+<div class="container-fluid">
+  <div class="row">
+<div class="col-lg-6">
+			<center>
+			  <img src="imagini/atmega164a.jpeg" width="250px" height="260px" alt=""/> </center>
+			  </div>
+  
+		
+	  <div class="col-lg-6">
+		  <center>
+		  <h3> Microcontroler Atmega164 </h3>
+			  <p>Atmega164 dispune de 16 KB memorie flash, 1 KB SRAM, și un oscilator intern precis, suficient pentru a realiza funcția de ceas.</p>
+		  </center>
+		 
+		</div>
+	  
+	
+	<div class="row">
+	  <div class="col-lg-6">
+		  <hr color= "black">
+ 	<center>
+		  <h3> LED WS2812</h3>
+			  <p>LED-urile adresabile WS2812 sunt componente electronice avansate care integrează un LED RGB și un circuit de control într-un singur pachet SMD 5050, permițând controlul individual al fiecărui LED dintr-un lanț serial. 
+Aceste LED-uri operează la o tensiune de alimentare de 5V DC și consumă aproximativ 60mA la luminozitate maximă pentru toate cele trei culori.
+WS2812 utilizează un protocol de comunicare de tip serial, cu un singur fir de date, care permite conectarea mai multor LED-uri în serie, fiecare fiind identificat printr-un cod unic.</p>
+		<p>Fiecare LED necesită 24 de biți pentru a defini culoarea sa (8 biți pentru fiecare canal de culoare). Ordinea este importantă: datele se transmit în formatul GRB (verde, roșu, albastru). Timpul de actualizare pentru fiecare LED este de aproximativ 30 µs, asigurând astfel un răspuns rapid la schimbările de culoare.</p>
+		
+		  </center>
+		
+		</div>
+	  <div class="col-lg-6">
+		  <hr color= "black">
+		  <left>
+		    <img src="imagini/banda led.jpeg" width="200px" height="250px" alt=""/> 
+          </left>
+		  
+		  <right>
+		    <img src="imagini/conf led.jpeg" width="350px" height="300px" alt=""/> 
+		  </right>
+	  </div>
+  </div>
+	  
+ <div class="container-fluid">
+<div class="row">
+  <div class="col-lg-6">
+			<hr color= "black">
+			<center>
+			 <img src="imagini/poza cond.jpeg" width="550px" height="550px" alt=""/> 
+			</center>
+	  </div>
+  
+		
+  <div class="col-lg-6">
+		  <hr color= "black">
+		  <center>
+		  <h3>Condensatoare & Rezistente </h3>
+			  <p>Condensatoarele C5 şi C6 se află cat mai aproape de procesor, între pinii 10-11, respectiv 30-31. Ele sunt 
+condensatoare de decuplare şi sunt specifice alimentarii oricărui circuit digital - asigură o “rezervă” de energie 
+în momentul comutării, şi astfel previne apariţia zgomotului de comutare pe liniile de alimentare.</p>
+			  <p>Condensatorul electrolitic C4 este recomandat pentru reducerea riscului ca procesorul 
+sa se reseteze din cauza unor glitch-uri pe alimentare.</p>
+			  <p>R1, C1 formeaza circuitul de “power-on reset”. În momentul aplicarii Vcc, C1 este descărcat şi “trage” linia 
+RESET* în “0”, resetand procesorul. Ulterior, condensatorul se va incărca prin R1 şi linia va sta în “1”.Acest reset este necesar pentru a asigura pornirea în bune condiţii a procesorului.</p>
+			  <p>Condensatorul C13 filtrează suplimentar tensiunea de referință AREF (VREF ADC ) și este necesar dacă se 
+folosește convertorul analog-digital integrat.</p>
+			  <p>Cristalul de cuarţ, împreuna cu condensatoarele C2, C3 şi cu amplificatorul intern 
+formeaza un oscilator cu cuarţ.</p>
+			  <p>Dioda LED-D2 este poziţionată astfel încat se aprinde cand PD6 este pe “1” logic, rezistenţa R2 asigură limitarea 
+curentului prin LED la cca. (5-1.6)/330= 10mA.</p>
+		  </center>
+		 
+		</div>
+<div class="row">
+    <div class="col-lg-6">
+		  <hr color= "black">
+ 	<center>
+		  <h3> Butoane</h3>
+			  <p>Două butoane sunt incluse pentru ajustarea orei și minutului. Apăsarea unuia dintre butoane va incrementa valoarea orei sau a minutului, iar aceasta va fi afișată instantaneu pe benzile de LED-uri.</p>
+		<p>Butoanele SW1 si SW3 sunt folosiet pentru a incrementa valoarea minutelor, respectiv a orelor.SW2 este folosit pentru resetarea acestora la valoarea initiala(din cod).</p>
+		
+		  </center>
+		
+		</div>
+    <div class="col-lg-6">
+		  <hr color= "black">
+		  <left>
+		    <img src="imagini/buton.jpeg" width="250px" height="250px" alt=""/> 
+		</left>
+		  
+	    <right>
+	    <img src="imagini/buton conf.jpeg" width="250px" height="250px" alt=""/> </right>
+	  </div>
+  </div>
+		
+<div class="row">
+  <div class="col-lg-12"><h4>Schema electrica</h4> <hr color="black">
+	<left>
+		<img src="imagini/schema.png" width="600px" height="250px" alt=""/> 
+    </left>
+	  
+	  <right>
+	    <img src="imagini/poza noi.jpeg" width="500px" height="450px" alt=""/> 
+	  </right>
+	</div>
+</div>
+	<br>
+ <div class="row">
+    <div class="col-lg-12"><h4>Bibliografie</h4> <hr color="black">
+     <center>
+		<a href="https://www.alldatasheet.com/datasheet-pdf/view/392238/ATMEL/ATMEGA164A.html">https://www.alldatasheet.com/datasheet-pdf/view/392238/ATMEL/ATMEGA164A.html</a>
+		 <br>
+		 <a href="https://octopart.com/datasheet/ws2812b-worldsemi-107467967?msclkid=9111c585ada3166f28afa3420ea5420d&utm_source=bing&utm_medium=cpc&utm_campaign=b_cpc_emea-ro_search_dsa_english_en_usd_all-categories&utm_term=semiconductors&utm_content=Discrete%20Semiconductors%20DSA">https://octopart.com/datasheet/ws2812b-worldsemi-107467967?msclkid=9111c585ada3166f28afa3420ea5420d&utm_source=bing&utm_medium=cpc&utm_campaign=b_cpc_emea-ro_search_dsa_english_en_usd_all-categories&utm_term=semiconductors&utm_content=Discrete%20Semiconductors%20DSA</a>
+		 <br>
+		 <a href="http://ham.elcom.pub.ro/proiect2/files/cpu-rev9.pdf">http://ham.elcom.pub.ro/proiect2/files/cpu-rev9.pdf</a>
+		
+		</center>
+	 </div>
+  </div>
+</div>
+</body>
+</html>
